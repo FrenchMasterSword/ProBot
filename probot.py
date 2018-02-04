@@ -68,18 +68,26 @@ Utilisez `.help` pour la liste des commandes.\n"
 
 
         moderateur = discord.utils.get(server.roles, id='366182752602554369')
+        print(message.author.top_role.name)
         if message.author.top_role >= moderateur:
-            if text == "mute":
-                ID = text[-20:-1]
+            overwrite = discord.PermissionOverwrite()
+            ID = text[-19:-1] # extract the ID of any mention ending the message
+            if text.startswith("mute"):
                 target = discord.utils.get(server.members, id=ID)
-                channel = message.channel
-                await client.delete_message(message)
-                memberPermissions = target.permissions_in(channel)
-                memberPermissions.send_messages = False
-                await client.send_message(message.channel, target.mention + " ne peut plus parler.")
+                overwrite.read_messages = False
 
-        else:
-            await client.send_message(message_channel, "Vous n'avez pas la permission d'éxécuter cette commande")
+                await client.send_message(message.channel, target.mention + " ne peut plus parler ici.")
+
+            if text.startswith("unmute"):
+                target = discord.utils.get(server.members, id=ID)
+                overwrite.read_messages = True
+                await client.send_message(message.channel, target.mention + " peut à nouveau parler ici.")
+
+            await client.edit_channel_permissions(message.channel, target, overwrite)
+            await client.delete_message(message) # Le message du modérateur est automatiquement supprimé
+
+        else: # Réponds par un refus à ceux étant inférieurs à Modérateur
+            await client.send_message(message.channel, "Vous devez au moins être `Modérateur` pour éxécuter cette commande.")
 
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
