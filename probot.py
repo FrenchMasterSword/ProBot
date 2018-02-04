@@ -10,6 +10,7 @@ async def on_ready():
     print("Logged in as :", client.user.name)
     print("ID :", client.user.id)
     print("Ready")
+    print("Roles : ", discord.Server.roles)
     await client.change_presence(game=played, afk=False)
     print("Playing : ", played.name)
 
@@ -65,7 +66,7 @@ Utilisez `.help` pour la liste des commandes.\n"
 
 
 
-        #if message.author.top_role >=
+        if message.author.top_role >= "366182752602554369"
 
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
