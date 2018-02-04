@@ -19,6 +19,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    server = client.get_server("366177253673140224")
     if message.author == client.user:
         return #prevent a bot talking to himself
 
