@@ -66,7 +66,7 @@ Utilisez `.help` pour la liste des commandes.\n"
 
 
 
-        if message.author.top_role >= "366182752602554369"
+        #if message.author.top_role >= "366182752602554369"
 
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
