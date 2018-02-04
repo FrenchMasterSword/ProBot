@@ -10,7 +10,7 @@ async def on_ready():
     print("Logged in as :", client.user.name)
     print("ID :", client.user.id)
     print("Ready")
-    await client.change_presence(game=played)
+    await client.change_presence(game=played, afk=False)
     print("Playing : ", played.name)
 
 #@client.event
@@ -19,7 +19,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.author == client.user:
-        return
+        return #prevent a bot talking to himself
 
     elif message.content.startswith('.'):
         text = message.content[1:] # the message's content without the .
