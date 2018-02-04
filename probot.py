@@ -9,8 +9,8 @@ played = discord.Game(name=".info | .help")
 async def on_ready():
     print("Logged in as :", client.user.name)
     print("ID :", client.user.id)
-    print("Ready")
-    print("Roles : ", discord.Server.roles)
+    server = client.get_server("366177253673140224")
+    print("Ready, server is : ", server.name)
     await client.change_presence(game=played, afk=False)
     print("Playing : ", played.name)
 
@@ -66,7 +66,16 @@ Utilisez `.help` pour la liste des commandes.\n"
 
 
 
-        if message.author.top_role.id >= "366182752602554369"
+        moderateur = discord.utils.get(server.roles, id='366182752602554369')
+        if message.author.top_role >= moderateur:
+            if text == "mute":
+                ID = text[-20:-1]
+                target = discord.utils.get(server.members, id=ID)
+                channel = message.channel
+                await client.delete_message(message)
+                memberPermissions = target.permissions_in(channel)
+                memberPermissions.send_messages = False
+                await client.send_message(message.channel, target.mention + " ne peut plus parler.") permissions_in(channel)
 
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
