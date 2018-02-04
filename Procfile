@@ -1,1 +1,1 @@
-echo worker: python probot.py > Procfile
+worker: python probot.py

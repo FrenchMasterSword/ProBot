@@ -1,1 +1,1 @@
-echo discord.py==0.16.6 > requirements.txt
+discord==0.16.6
