@@ -25,7 +25,6 @@ async def on_message(message):
         text = message.content[1:] # the message's content without the .
         endCommand = text.find(" ")+1
         contenu = str(text[endCommand:])
-        print(contenu)
 
         if text == "help":
             content = "`.help` Affiche ce menu. ( Tu viens de le faire, non ? :thinking:)\n\
@@ -66,7 +65,7 @@ Utilisez `.help` pour la liste des commandes.\n"
 
 
 
-        #if message.author.top_role >= 
+        #if message.author.top_role >=
 
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
