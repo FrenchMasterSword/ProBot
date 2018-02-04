@@ -75,7 +75,7 @@ Utilisez `.help` pour la liste des commandes.\n"
                 await client.delete_message(message)
                 memberPermissions = target.permissions_in(channel)
                 memberPermissions.send_messages = False
-                await client.send_message(message.channel, target.mention + " ne peut plus parler.") permissions_in(channel)
+                await client.send_message(message.channel, target.mention + " ne peut plus parler.")
 
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
