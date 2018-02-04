@@ -78,6 +78,9 @@ Utilisez `.help` pour la liste des commandes.\n"
                 memberPermissions.send_messages = False
                 await client.send_message(message.channel, target.mention + " ne peut plus parler.")
 
+        else:
+            await client.send_message(message_channel, "Vous n'avez pas la permission d'éxécuter cette commande")
+
 #def say(content, titre, couleur=0xcacbce, target=message.channel):
   #  emb = discord.Embed(description=content, colour=couleur)
     #emb.set_author(name=titre, icon_url=client.user.avatar_url)
