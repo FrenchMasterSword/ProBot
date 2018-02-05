@@ -84,7 +84,8 @@ Utilisez `.help` pour la liste des commandes.\n"
                 overwrite.read_messages = True
                 await client.send_message(message.channel, target.mention + " peut à nouveau parler ici.")
                 await client.edit_channel_permissions(message.channel, target, overwrite)
-            await client.delete_message(message) # Le message du modérateur est automatiquement supprimé
+
+            #await client.delete_message(message) # Le message du modérateur est automatiquement supprimé ERROR
 
         #if message.author.top_role < moderateur: # Réponds par un refus à ceux étant inférieurs à Modérateur (else serait utilisé le reste du temps)
         #    await client.send_message(message.channel, "Vous devez au moins être `Modérateur` pour éxécuter cette commande.")
@@ -95,4 +96,4 @@ Utilisez `.help` pour la liste des commandes.\n"
     #await client.send_message(target, embed=emb)
 
 
-client.run("NDA5MjM5MDY2NzAyMzgxMDY2.DVdB1g.s2gQ7rhrw4iAuSClM-dtGv4BMFM")
+client.run("NDA5MjM5MDY2NzAyMzgxMDY2.DVkK_g.mHPImZtyD8_gsX1quiYtFqeEcj0")
