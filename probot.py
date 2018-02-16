@@ -96,4 +96,4 @@ Utilisez `.help` pour la liste des commandes.\n"
     #await client.send_message(target, embed=emb)
 
 
-client.run(BOT_TOKEN)
+client.run("BOT_TOKEN")
